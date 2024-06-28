@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from datetime import datetime
 import serial
 import threading
@@ -40,6 +40,16 @@ def get_metricas():
 
     # Retornar as métricas como JSON
     return jsonify(metricas)
+
+@app.route('/ligar', methods=['POST'])
+def ligar():
+    sensor.write(b'LIGAR\n')
+    return jsonify({"status": "Relé ligado"}), 200
+
+@app.route('/desligar', methods=['POST'])
+def desligar():
+    sensor.write(b'DESLIGAR\n')
+    return jsonify({"status": "Relé desligado"}), 200
 
 if __name__ == '__main__':
     app.run(port=8000)
