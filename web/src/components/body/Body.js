@@ -2,6 +2,7 @@ import React from 'react';
 import { Box, Typography } from '@mui/material';
 import { styled } from '@mui/system';
 import { ReactTyped } from 'react-typed';
+import Planta from '../../img/undraw_environment_iaus.png'
 
 const TextoDores = () => (
     <div>
@@ -15,9 +16,9 @@ const TextoDores = () => (
             onStart={function noRefCheck() { }}
             onStop={function noRefCheck() { }}
             strings={[
-                'Enrico CARAGNO',
-                'Puterrier MALÁSIA',
-                'Gabriel IBMEC'
+                'transformamos tecnologia em sustentabilidade',
+                'ajudamos você a diminuir sua pegada de carbono',
+                ''
             ]}
             typeSpeed={50}
             loop
@@ -28,7 +29,7 @@ const TextoDores = () => (
 
 const Section = styled(Box)(({ theme }) => ({
     height: '85vh',
-    width: '70%',
+    width: '70vw',
     margin: '0 auto',
     display: 'flex',
     alignItems: 'center',
@@ -49,7 +50,7 @@ const Image = styled('img')(({ theme }) => ({
     maxWidth: '40%',
     borderRadius: '7px',
     opacity: 0.8,
-    boxShadow: '0 0 10px 0 rgba(0,0,0,0.2)',
+    boxShadow: '0 0 10px 0 rgba(0,0,0,0.8)',
     height: 'auto',
     [theme.breakpoints.down('sm')]: {
         marginTop: theme.spacing(2),
@@ -66,27 +67,42 @@ const Body = () => {
             <FullWidthBox>
                 <Section>
                     <TextBox>
-                        <Typography variant="h2">Nosssas DORES :( </Typography>
+                        <Typography variant="h3">Organize seus gastos</Typography>
+                        <br />
                         <Typography variant="h6">
-                            <TextoDores />
+                            Descubra um aplicativo que monitora seus gastos em casa.
+                        </Typography>
+                        <Typography variant="h6">
+                            Tenha controle sobre o custo de cada equipamento que você utiliza.
                         </Typography>
 
                     </TextBox>
-                    <Image src="https://root-nation.com/wp-content/uploads/2024/02/vista-title-title.jpg" alt="Descrição da Imagem" />
+                    <Image src="https://www.amigoscode.com/assets/thumbnails/courses/mongodb.webp" alt="Descrição da Imagem" />
                 </Section>
             </FullWidthBox>
 
-            <FullWidthBox sx={{ backgroundColor: 'lightcoral' }}>
+            <FullWidthBox sx={{ backgroundColor: 'rgba(0, 0, 0, 0.2)' }}>
                 <Section>
-                    <Image src="https://images4.alphacoders.com/134/1349540.png" alt="Descrição da Imagem" />
-                    <Typography variant="h2">Nossa SOLUÇÃO :) </Typography>
+                    <Image src={Planta} alt="Descrição da Imagem" />
+                    <TextBox>
+                        <Typography variant="h3">Nossa Missão</Typography>
+                        <ul>
+                            <li>Reduzir a Pegada de Carbono no mundo atual</li>
+                            <li>Oferecer praticidade ao usuário</li>
+                            <li>Diminuir custos desnecessários</li>
+                            <li>Compromisso com o Meio Ambiente</li>
+                        </ul>
+                    </TextBox>
                 </Section>
             </FullWidthBox>
 
             <FullWidthBox>
                 <Section>
-                    <Typography variant="h2">Próximos PASSOS :|</Typography>
-                    <Image src="https://preview.redd.it/created-my-own-generic-frutiger-aero-wallpaper-to-use-for-v0-5fb4uuthj49c1.png?width=640&crop=smart&auto=webp&s=c71cf3ea5996b2534768f80d8e3f4a7efe808818" alt="Descrição da Imagem" />
+                    <TextBox>
+                        <Typography variant="h3">Venha entender como</Typography>
+                        <TextoDores />
+                    </TextBox>
+                    <Image src="https://img-c.udemycdn.com/course/480x270/3764174_3ca2_2.jpg" alt="Descrição da Imagem" />
                 </Section>
             </FullWidthBox>
         </>
