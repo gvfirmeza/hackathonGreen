@@ -47,8 +47,9 @@ const TextBox = styled(Box)(({ theme }) => ({
 
 
 const Image = styled('img')(({ theme }) => ({
-    maxWidth: '40%',
+    maxWidth: '45%',
     borderRadius: '7px',
+    margin: '10px',
     opacity: 0.8,
     boxShadow: '0 0 10px 0 rgba(0,0,0,0.8)',
     height: 'auto',
@@ -70,7 +71,7 @@ const Body = () => {
                         <Typography variant="h3">Organize seus gastos</Typography>
                         <br />
                         <Typography variant="h6">
-                            Descubra um aplicativo que monitora seus gastos em casa.
+                            Descubra um aplicativo que monitora seus gastos com energia.
                         </Typography>
                         <Typography variant="h6">
                             Tenha controle sobre o custo de cada equipamento que você utiliza.
