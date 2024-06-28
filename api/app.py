@@ -13,14 +13,16 @@ sensor = serial.Serial('COM3', 9600)
 # Variáveis globais para armazenar os valores
 total_kwh = 0
 corrente = 0
+watts = 0
 
 def ler_sensor():
-    global total_kwh, corrente
+    global total_kwh, corrente, watts
     while True:
         linha = sensor.readline().decode().rstrip()
         if linha:
             corrente = float(linha)
-            kwh = (((220 * corrente) * 0.00028) / 1000)
+            watts = corrente * 220
+            kwh = ((watts * 0.00028) / 1000)
             total_kwh += kwh
 
 # Iniciar a thread para ler os dados do sensor
@@ -36,7 +38,7 @@ def get_metricas():
     # Criar o dicionário com as métricas
     metricas = {
         "valorTotal": round(total_kwh * 1.1, 4),  # Com acréscimo de 10%
-        "correnteAtual": round(corrente, 2),
+        "correnteAtual": round(watts, 2),
         # "timestamp": timestamp
     }
 
