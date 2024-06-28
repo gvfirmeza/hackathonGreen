@@ -6,9 +6,10 @@ import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import BasicLineChart from "../basiclinechart/BasicLineChart";
+import BasicPie from "../basicpie/BasicPie";
+import GaugePointer from "../gaugepointer/GaugePointer";
 
 const Dashboard = styled(Box)(({ theme }) => ({
-  height: "85vh",
   width: "70vw",
   margin: "0 auto",
   display: "flex",
@@ -63,9 +64,12 @@ const ContainerBaixo = styled(Box)(({ theme }) => ({
 
 const BlocoTexto = styled(Box)(({ theme }) => ({
   width: "18em",
+  display: "flex",
+  flexDirection: "column",
+  alignItems: "center",
   textAlign: "center",
   padding: theme.spacing(1),
-  backgroundColor: "#191919",
+  backgroundColor: "rgba(0,0,0,0.6)",
   borderRadius: "4px",
 }));
 
@@ -73,7 +77,7 @@ const BlocoPower = styled(Box)(({ theme }) => ({
   width: "8em",
   textAlign: "center",
   padding: theme.spacing(2),
-  backgroundColor: "#191919",
+  backgroundColor: "rgba(0,0,0,0.6)",
   borderRadius: "4px",
 }));
 
@@ -83,7 +87,7 @@ const GrafPizza = styled(Box)(({ theme }) => ({
   alignItems: "center",
   justifyContent: "center",
   borderRadius: "4px",
-  backgroundColor: "#191919",
+  backgroundColor: "rgba(0,0,0,0.6)",
   padding: theme.spacing(4),
   [theme.breakpoints.down("sm")]: {
     flexDirection: "column",
@@ -103,10 +107,12 @@ const Dash = () => {
         </GrafBarra>
         <ContainerBaixo>
           <BlocoTexto>
-            <Typography variant="h4">Bloco de texto</Typography>
-            <Typography variant="body1">Texto</Typography>
+          <Typography variant="h4">Bloco de texto</Typography>
+          <GaugePointer />
           </BlocoTexto>
-          <GrafPizza>Gráfico de pizza</GrafPizza>
+          <GrafPizza>
+            <BasicPie />
+          </GrafPizza>
           <BlocoPower>
             <Typography variant="h6">TOMADA</Typography>
             <FormControl sx={'margin-top: 8px'}>
