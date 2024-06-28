@@ -13,7 +13,8 @@ while True:
         toti = round(total * 1.1, 4)
         fat_atu = '{:0.4f}'.format(toti)
         corr_atu = '{:0>5.2f}'.format(corrente)
+        os.system('cls')
         print("CORRENTE ATUAL", corr_atu, "A    FATURA ATUAL R$", fat_atu)
         time.sleep(1)
-        os.system('cls')
+        
 

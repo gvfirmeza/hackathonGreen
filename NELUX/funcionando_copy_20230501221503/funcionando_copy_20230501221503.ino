@@ -1,5 +1,5 @@
 #include "EmonLib.h"
-#define PIN_SENSOR A0
+#define PIN_SENSOR A5
 
 EnergyMonitor sct;
 float corrente;
