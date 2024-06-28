@@ -1,9 +1,10 @@
 import React from 'react';
+import Body from '../components/body/Body';
 
 const HomePage = () => {
     return (
         <div>
-            vamo ganhar esse hackathon crl
+            <Body />
         </div>
     );
 };
