@@ -7,7 +7,6 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import BasicLineChart from "../basiclinechart/BasicLineChart";
 import BasicPie from "../basicpie/BasicPie";
-import GaugePointer from "../gaugepointer/GaugePointer";
 import axios from 'axios';
 
 const Dashboard = styled(Box)(({ theme }) => ({
@@ -128,14 +127,13 @@ const Dash = () => {
         </GrafBarra>
         <ContainerBaixo>
           <BlocoTexto>
-            <Typography variant="h4">Bloco de texto</Typography>
-            <GaugePointer />
+            <Typography variant="h6">Bloco de texto</Typography>
           </BlocoTexto>
           <GrafPizza>
             <BasicPie />
           </GrafPizza>
           <BlocoPower>
-            <Typography variant="h6">TOMADA</Typography>
+            <Typography variant="h6">Dispositivo</Typography>
             <FormControl sx={'margin-top: 8px'}>
               <RadioGroup name="controlled-radio-buttons-group">
                 <FormControlLabel
