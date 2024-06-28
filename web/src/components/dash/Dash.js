@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Box, Typography } from "@mui/material";
 import { styled } from "@mui/system";
 import Radio from '@mui/material/Radio';
@@ -8,6 +8,7 @@ import FormControl from '@mui/material/FormControl';
 import BasicLineChart from "../basiclinechart/BasicLineChart";
 import BasicPie from "../basicpie/BasicPie";
 import GaugePointer from "../gaugepointer/GaugePointer";
+import axios from 'axios';
 
 const Dashboard = styled(Box)(({ theme }) => ({
   width: "70vw",
@@ -96,19 +97,39 @@ const GrafPizza = styled(Box)(({ theme }) => ({
 }));
 
 const Dash = () => {
+  const [totalGasto, setTotalGasto] = useState(0);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      const fetchTotalGasto = async () => {
+        try {
+          const response = await axios.get('http://localhost:5000/api/gasto');
+          setTotalGasto(response.data.totalGasto);
+        } catch (error) {
+          console.error('Erro ao buscar total de gasto:', error);
+        }
+      };
+
+      fetchTotalGasto();
+    }, 1000);
+
+    return () => clearInterval(intervalId);
+  }, []);
+
   return (
     <>
       <br />
       <br />
       <Dashboard>
-        <Titulo sx={'margin-bottom: 15px'}>Dashboard</Titulo>
+        <Titulo sx={'margin-bottom: 5px'}>Ibmec</Titulo>
+        <Typography variant="h6">Total Gasto: R$ {totalGasto.toFixed(2)}</Typography>
         <GrafBarra>
             <BasicLineChart />
         </GrafBarra>
         <ContainerBaixo>
           <BlocoTexto>
-          <Typography variant="h4">Bloco de texto</Typography>
-          <GaugePointer />
+            <Typography variant="h4">Bloco de texto</Typography>
+            <GaugePointer />
           </BlocoTexto>
           <GrafPizza>
             <BasicPie />

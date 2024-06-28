@@ -5,7 +5,7 @@ import { LineChart } from '@mui/x-charts/LineChart';
 
 export default function BasicLineChart() {
   const [data, setData] = useState({ labels: [], values: [] });
-  const maxDataPoints = 15;
+  const maxDataPoints = 10;
 
   useEffect(() => {
     let timeCounter = 0;
@@ -40,9 +40,9 @@ export default function BasicLineChart() {
       }
     };
 
-    const intervalId = setInterval(fetchData, 1000); // ajusta o intervalo conforme necessário
+    const intervalId = setInterval(fetchData, 1000);
 
-    return () => clearInterval(intervalId); // limpa o intervalo quando o componente é desmontado
+    return () => clearInterval(intervalId);
   }, []);
 
   return (
