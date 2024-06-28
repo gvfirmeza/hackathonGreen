@@ -1,9 +1,11 @@
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 from datetime import datetime
 import serial
 import threading
 
 app = Flask(__name__)
+CORS(app)
 
 # Inicializar a conexão serial
 sensor = serial.Serial('COM3', 9600)
@@ -29,13 +31,13 @@ thread.start()
 @app.route('/get_metricas', methods=['GET'])
 def get_metricas():
     # Capturar o timestamp atual
-    timestamp = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+    # timestamp = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
     # Criar o dicionário com as métricas
     metricas = {
         "valorTotal": round(total_kwh * 1.1, 4),  # Com acréscimo de 10%
         "correnteAtual": round(corrente, 2),
-        "timestamp": timestamp
+        # "timestamp": timestamp
     }
 
     # Retornar as métricas como JSON
